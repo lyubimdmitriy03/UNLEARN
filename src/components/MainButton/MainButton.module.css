@@ -1,0 +1,69 @@
+.main-button {
+  position: relative;
+  font-size: 18px;
+  padding: 30px 90px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "HelveticaNeue", sans-serif;
+  font-size: 18px;
+  opacity: 0;
+}
+
+.main-button__background {
+  --border: 2px; /* the border width */
+  --slant: 1em; /* control the slanted corners */
+  --color: rgba(255, 255, 255, 0.1); /* the color */
+  --color2: rgba(255, 255, 255, 1);
+  position: absolute;
+  inset: 0;
+  border: none;
+  color: var(--color2);
+  background:
+    linear-gradient(to bottom right, var(--color) 50%, transparent 50.1%) top
+      left,
+    linear-gradient(to top left, var(--color) 50%, transparent 50.5%) bottom
+      right;
+  background-size: calc(var(--slant) + 1.3 * var(--border))
+    calc(var(--slant) + 1.3 * var(--border));
+  background-repeat: no-repeat;
+  box-shadow:
+    0 0 0 200px inset var(--s, #0000),
+    0 0 0 var(--border) inset var(--color);
+  clip-path: polygon(
+    100% 0,
+    var(--slant) 0,
+    0 var(--slant),
+    0 100%,
+    calc(100% - var(--slant)) 100%,
+    100% calc(100% - var(--slant))
+  );
+  filter: blur(1px);
+
+  transition:
+    color var(--t, 0.3s),
+    background-size 0.3s;
+}
+
+.main-button__background:focus-visible {
+  outline-offset: calc(-1 * var(--border));
+  outline: var(--border) solid #000c;
+  clip-path: none;
+  background-size: 0 0;
+}
+.main-button__background:hover,
+.main-button__background:active {
+  background-size: 100% 100%;
+  color: #fff;
+  --t: 0.2s 0.1s;
+}
+.main-button__background:active {
+  --s: #0005;
+  transition: none;
+}
+
+@media screen and (width < 48rem) {
+  .main-button {
+    padding: 20px 60px;
+    font-size: 16px;
+  }
+}

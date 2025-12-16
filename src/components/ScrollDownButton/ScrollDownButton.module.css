@@ -1,0 +1,51 @@
+.scroll-down {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border: 2px solid #464d62;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-bottom: 50px;
+  opacity: 0;
+  scale: 0;
+  transition: border-color 0.35s ease-out;
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+}
+
+.scroll-down:hover {
+  /* border-color: #9fdcff; */
+  border-color: rgba(159, 255, 210, 0.75);
+}
+
+.scroll-down svg {
+  margin: 0 auto;
+}
+
+.scroll-down svg path {
+  transition: fill 0.35s ease-out;
+}
+
+.scroll-down:hover svg path {
+  fill: rgba(159, 255, 210, 0.75);
+}
+
+/* .scroll-down::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background: url("../../../public/arrow-down.svg") no-repeat center/contain;
+  width: 14px;
+  height: 14px;
+} */
+
+@media screen and (width < 48rem) {
+  .scroll-down {
+    width: 50px;
+    height: 50px;
+  }
+}

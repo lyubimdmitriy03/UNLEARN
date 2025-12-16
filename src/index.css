@@ -1,0 +1,67 @@
+/* @font-face {
+  font-family: "MontrealNeue";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("./fonts/ppneuemontreal-medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "HelveticaNeue";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("./fonts/HelveticaNeueBold.woff2") format("woff2");
+} */
+/* @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"rel="stylesheet");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap"); */
+
+@font-face {
+  font-family: "MontrealNeue";
+  src:
+    url("fonts/ppneuemontreal-medium.woff2") format("woff2"),
+    url("fonts/ppneuemontreal-medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src:
+    url("fonts/HelveticaNeueBold.woff2") format("woff2"),
+    url("fonts/HelveticaNeueBold.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+.no-scroll {
+  overflow: hidden;
+}
+
+main .home-page__content {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.no-scroll main .home-page__content {
+  opacity: 0;
+}
+
+@theme {
+  --color-mainBlack: #121114;
+  --color-mainWhite: #ffffff;
+  --font-MontrealNeue: "MontrealNeue", sans-serif;
+  --font-HelveticaNeue: "HelveticaNeue", sans-serif;
+  /* --animate-wiggle: wiggle 1s ease-in-out infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  } */
+}
