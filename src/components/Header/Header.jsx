@@ -36,6 +36,12 @@ const Header = forwardRef((props, ref) => {
     document.body.classList.toggle("no-scroll", !menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+    document.body.classList.remove("no-scroll");
+    document.body.classList.remove("open");
+  };
+
   useEffect(() => {
     // Scramble Text hover effect
     const scrambleElements = document.querySelectorAll(".scramble-text");
@@ -118,7 +124,7 @@ const Header = forwardRef((props, ref) => {
         scale: 1,
         stagger: 0.15,
       },
-      "-=1.0",
+      "-=2.0",
     );
   }, []);
 
@@ -147,7 +153,7 @@ const Header = forwardRef((props, ref) => {
       <div className="header__container mx-auto max-w-[1280px] md:mt-8 lg:mt-12.5">
         <div className="header__body container mx-auto flex items-center justify-between px-5 py-5">
           {/* Logo */}
-          <Link to={"/"} className="z-10">
+          <Link to={"/"} onClick={closeMenu} className="z-10">
             <span className={`${style.header__logo} header__logo-animation`}>
               <svg
                 width="157"
@@ -288,7 +294,7 @@ const Header = forwardRef((props, ref) => {
                   }}
                 >
                   <NavLink
-                    onClick={toggleMenu}
+                    onClick={closeMenu}
                     to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
                     className={({ isActive }) =>
                       `${style.navigation__link} ${isActive ? "navigation__link-active" : ""}`

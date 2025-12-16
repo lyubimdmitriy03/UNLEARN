@@ -104,6 +104,14 @@
 
 /* max-width: 768px → 48rem */
 @media screen and (width < 48rem) {
+  .navigation__link {
+    background: none;
+  }
+  .navigation__link::before {
+    content: none;
+    display: none;
+  }
+
   .icon-menu {
     display: block;
     position: relative;
@@ -118,6 +126,18 @@
     .icon-menu {
       cursor: default;
     }
+  }
+
+  .scramble_text:hover {
+    color: #ffffff;
+  }
+
+  .header__logo:hover svg path {
+    fill: #ffffff;
+  }
+
+  .header__logo:hover svg .logo_letter_group_un path {
+    fill: #ffffff !important;
   }
 
   .icon-menu span {

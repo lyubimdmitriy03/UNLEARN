@@ -68,7 +68,6 @@ const Home = forwardRef((props, ref) => {
 
   return (
     <div ref={containerRef} className="home-page relative flex h-screen">
-      {/* Three.js фон */}
       <div
         ref={backgroundRef}
         className="home-page__background absolute inset-0 z-0 overflow-hidden opacity-0"
@@ -76,7 +75,6 @@ const Home = forwardRef((props, ref) => {
         <ThreeBackground />
       </div>
 
-      {/* Контент */}
       <div className="home-page__content relative container mx-auto max-w-[914px] self-end px-5 text-center">
         <MainButton ref={mainButtonRef}>START TODAY!</MainButton>
         <h1
@@ -117,12 +115,10 @@ const Home = forwardRef((props, ref) => {
 
 Home.displayName = "Home";
 
-// Компонент с ref для Layout
 export default function HomeWithLayoutRef() {
   const { pageAnimationRef, isLoaded } = useOutletContext();
 
   useEffect(() => {
-    // Переконуємося, що timeline створено
     if (isLoaded && pageAnimationRef.current) {
       pageAnimationRef.current.play();
     }

@@ -17,14 +17,12 @@ function Loader({ onFinish, headerRef, pageRef }) {
       if (width >= 100) {
         clearInterval(interval);
 
-        // Ховаємо прогрес-бар
         gsap.to([percentRef.current, barRef.current], {
           opacity: 0,
           zIndex: -1,
           duration: 0.5,
         });
 
-        // Завершуємо Loader
         onFinish();
         return;
       }
@@ -37,7 +35,6 @@ function Loader({ onFinish, headerRef, pageRef }) {
       });
       percentRef.current.innerText = `${width}%`;
 
-      // Запускаємо анімації Header і сторінки раніше
       if (width > 99 && !animationStarted) {
         headerRef?.current?.play();
         pageRef?.current?.play();
@@ -45,7 +42,6 @@ function Loader({ onFinish, headerRef, pageRef }) {
       }
     }, 25);
 
-    // Початкова анімація Loader (fade-in)
     gsap.fromTo(
       loaderRef.current,
       { opacity: 0 },
